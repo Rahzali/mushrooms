@@ -6,7 +6,7 @@ find_package(Qt6 REQUIRED COMPONENTS Core Qml Quick Gui)
 
 qt_add_resources(QML_RESOURCES qml.qrc)
 
-add_library(MapViewLib SHARED
+add_library(MapViewLib STATIC
         MapView.cpp
         MapView.h
         ${QT_RESOURCES}

@@ -33,5 +33,5 @@
 
 # Other
 cmake-*
-build
+build*
 .idea

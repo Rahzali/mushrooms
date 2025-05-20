@@ -1,7 +1,7 @@
-import QtQuick 2.15
-import QtQuick.Window 2.15
-import QtLocation 5.15
-import QtPositioning 5.15
+import QtQuick
+import QtQuick.Window
+import QtLocation
+import QtPositioning
 
 Item {
     visible: true
