@@ -3,6 +3,7 @@
 #include <QQmlContext>
 #include <QDebug>
 #include <QQmlEngine>
+#include <QDir>
 
 
 // New constructor with window and engine passed

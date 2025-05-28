@@ -3,8 +3,12 @@
 #include <QQmlEngine>
 #include "MapView/MapView.h"
 
+int qInitResources_qml();
+
 int main(int argc, char *argv[])
 {
+    qInitResources_qml(); // ensures resource is registered
+
     QGuiApplication app(argc, argv);
 
     // Create QQuickWindow manually
