@@ -1,7 +1,5 @@
 #pragma once
 
-#include <QObject>
-#include <QQmlComponent>
 #include <QQuickWindow>
 #include <QQuickItem>
 
@@ -14,8 +12,13 @@ public:
     ~MapView() override = default;
 
     QQuickItem* item() const;
+protected:
+    bool eventFilter(QObject* obj, QEvent* event) override;
+
 
 private:
     QQmlComponent m_component;
     QQuickItem* m_item = nullptr;
+    QPointF m_lastMousePos;
+    bool m_dragging = false;
 };
