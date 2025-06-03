@@ -38,6 +38,19 @@ MapView::MapView(QQuickWindow* window, QQmlEngine* engine, QObject* parent)
         return;
     }
 
+
     m_item->setParentItem(window->contentItem());
     m_item->setParent(this);
 }
+
+QQuickItem * MapView::item() const
+{
+    return m_item;
+}
+
+MapItem_t MapView::getMapItem(const std::string &name) const
+{
+}
+void MapView::addMapItem(const std::string &name, const MapItem_t &item) {}
+void MapView::updateMapItem(const std::string &name, const MapItem_t &item) {}
+void MapView::removeMapItem(const std::string &name) {}
