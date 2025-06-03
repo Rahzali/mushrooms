@@ -4,9 +4,10 @@ import QtLocation
 import QtPositioning
 
 Item {
-    visible: true
-    width: 800
-    height: 600
+    anchors.fill: parent
+
+    property var centerCoordinatre: QtPositioning.coordinate(50.290786, 18.6789467)  // RMS
+    property real zoomLevel: 14
 
     Plugin {
         id: mapPlugin
@@ -16,7 +17,23 @@ Item {
     Map {
         anchors.fill: parent
         plugin: mapPlugin
-        center: QtPositioning.coordinate(51.107883, 17.038538)  // Wroclaw, Poland
-        zoomLevel: 14
+        center: centerCoordinatre
+        zoomLevel: zoomLevel
+        id: map
+
+        MapQuickItem {
+            id: marker
+            coordinate: centerCoordinatre
+            anchorPoint.x: 5
+            anchorPoint.y: 5
+            sourceItem: Rectangle {
+                width: 10
+                height: 10
+                radius: 5
+                color: "black"
+                border.color: "white"
+                border.width: 1
+            }
+        }
     }
 }
