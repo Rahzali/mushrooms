@@ -3,20 +3,15 @@ import QtQuick.Window
 import QtLocation
 import QtPositioning
 
-Item {
-    visible: true
-    width: 800
-    height: 600
-
+Map {
     Plugin {
         id: mapPlugin
         name: "osm"
     }
 
-    Map {
-        anchors.fill: parent
-        plugin: mapPlugin
-        center: QtPositioning.coordinate(51.107883, 17.038538)  // Wroclaw, Poland
-        zoomLevel: 14
-    }
+    anchors.fill: parent
+    plugin: mapPlugin
+    center: QtPositioning.coordinate(50.290786, 18.6789467)
+    zoomLevel: 12
+    id: map
 }
