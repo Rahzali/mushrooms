@@ -2,12 +2,31 @@
 #include <QQuickWindow>
 #include <QQmlEngine>
 #include "MapView/MapView.h"
+#include <iostream>
+#include <mysqlx/xdevapi.h>
 
 int qInitResources_qml();
 
 int main(int argc, char *argv[])
 {
     qInitResources_qml(); // ensures resource is registered
+
+    try {
+        mysqlx::Session sess("localhost", 33060, "root", "Zaq12wsx");
+
+        mysqlx::Schema db = sess.getSchema("grzyby");
+        mysqlx::Table table = db.getTable("grzyb");
+        mysqlx::RowResult res = table.select("*").execute();
+
+        for (mysqlx::Row row : res) {
+            for (unsigned int i = 0; i < row.colCount(); ++i) {
+                std::cout << row[i] << " ";
+            }
+            std::cout << std::endl;
+        }
+    } catch (...) {
+        std::cerr << "error" << std::endl;
+    }
 
     QGuiApplication app(argc, argv);
 
